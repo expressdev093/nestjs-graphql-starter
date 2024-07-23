@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  description: String!
+  id: Float!
+  status: Boolean!
+  subCategories: [SubCategory!]
+  title: String!
+}
+
+input CreateCategoryInput {
+  description: String!
+  status: Boolean!
+  title: String!
+}
+
+input CreateSubCategoryInput {
+  categoryId: Float!
+  description: String!
+  status: Boolean!
+  title: String!
+}
+
+type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  createSubCategory(createSubCategoryInput: CreateSubCategoryInput!): SubCategory!
+  removeCategory(id: Int!): Category!
+  removeSubCategory(id: Int!): SubCategory!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  updateSubCategory(updateSubCategoryInput: UpdateSubCategoryInput!): SubCategory!
+}
+
+type Query {
+  categories: [Category!]!
+  category(id: Int!): Category!
+  findAllCategory: [Category!]!
+  subCategories: [SubCategory!]!
+  subCategory(id: Int!): SubCategory!
+}
+
+type SubCategory {
+  category: Category!
+  categoryId: Float!
+  description: String!
+  id: Float!
+  status: Boolean!
+  title: String!
+}
+
+input UpdateCategoryInput {
+  description: String
+  id: Float!
+  status: Boolean
+  title: String
+}
+
+input UpdateSubCategoryInput {
+  categoryId: Float
+  description: String
+  id: Float!
+  status: Boolean
+  title: String
+}
